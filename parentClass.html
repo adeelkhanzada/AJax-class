@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+        .current{
+            color:red;
+        }
+
+    </style>
+</head>
+<body>
+<div id="wrapper">
+    <div id="box">click here</div>
+    <div rel="touch">
+        <h2>title</h2>
+        <p>dummy textxt xtxtxtxtxt</p>
+    </div>
+    <div rel="touch">
+        <h1>title</h1>
+        <div>dummy textxt xtxtxtxtxt</div>
+    </div>
+</div>
+<script>
+
+    document.getElementById("box").addEventListener("click", myFunction);
+
+    function myFunction() {
+        var IDs = document.getElementById("wrapper").querySelectorAll("[rel=touch]");
+
+        for (var i = 0; i < IDs.length; i++) {
+            var currentParent = IDs[i];
+            currentParent.className = "parent-touch";
+            var children = currentParent.children;
+
+            for (var j = 0; j < children.length; j++) {
+                var currentChild = children[i];
+                currentChild.className = "current";
+            }
+        }
+    }
+</script>
+</body>
+</html>
